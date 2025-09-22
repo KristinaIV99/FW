@@ -23,12 +23,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/FW/icons/icon-152x152.png",
-      "sizes": "152x152", 
-      "type": "image/png",
-      "purpose": "any"
     }
   ]
 }
