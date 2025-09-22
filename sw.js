@@ -2,14 +2,14 @@
 
 const CACHE_NAME = 'taskwarrior-composer-v1';
 const STATIC_ASSETS = [
-    '/',
-    '/index.html',
-    '/projekt/app.js',
-    '/projekt/config.js',
-    '/projekt/styles.css',
-    '/manifest.json',
-    '/icons/icon-192x192.png',
-    '/icons/icon-512x512.png'
+    '/FW/',
+    '/FW/index.html',
+    '/FW/projekt/app.js',
+    '/FW/projekt/config.js',
+    '/FW/projekt/styles.css',
+    '/FW/manifest.json',
+    '/FW/icons/icon-192x192.png',
+    '/FW/icons/icon-512x512.png'
 ];
 
 // Install event - cache static assets
