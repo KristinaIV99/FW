@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskwarrior Composer</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA Meta tags -->
+    <meta name="theme-color" content="#764ba2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="TaskComposer">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-192x192.png">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-72x72.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="projekt/styles.css">
+    
+    <!-- SEO Meta -->
+    <meta name="description" content="Sukurkite ir eksportuokite Taskwarrior užduotis lengvai su šia PWA programėle">
+    <meta name="keywords" content="taskwarrior, task manager, productivity, GTD, užduočių valdymas">
+    <meta name="author" content="Taskwarrior Composer">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TASKWARRIOR COMPOSER</h1>
+            <div id="installPrompt" class="install-prompt" style="display: none;">
+                <button id="installBtn" class="install-btn">📱 Įdiegti programėlę</button>
+            </div>
+        </header>
+
+        <form id="taskForm">
+            <!-- DESCRIPTION -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label for="description">DESCRIPTION *</label>
+                    <button type="button" class="info-btn" data-help="DESCRIPTION_HELP.txt">?</button>
+                </div>
+                <div class="description-row">
+                    <button type="button" id="milestoneToggle" class="milestone-btn">MILESTONE:</button>
+                    <input type="text" id="description" required placeholder="Užduoties aprašymas...">
+                </div>
+            </div>
+
+            <!-- PROJECT -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label>PROJECT</label>
+                    <button type="button" class="info-btn" data-help="PROJECT_HELP.txt">?</button>
+                </div>
+                <div class="project-selects">
+                    <select id="projectPrimary">
+                        <option value="">Pasirinkti...</option>
+                    </select>
+                    <select id="projectSecondary" disabled>
+                        <option value="">Pasirinkti...</option>
+                    </select>
+                    <select id="projectTertiary" disabled>
+                        <option value="">Pasirinkti...</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ANNOTATIONS -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label for="annotations">ANNOTATIONS</label>
+                    <button type="button" class="info-btn" data-help="ANNOTATIONS_HELP.txt">?</button>
+                </div>
+                <textarea id="annotations" placeholder="Papildoma informacija..."></textarea>
+            </div>
+
+            <!-- TAGS -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label>TAGS</label>
+                    <button type="button" class="info-btn" data-help="TAGS_HELP.txt">?</button>
+                </div>
+                <div id="tagsContainer" class="tags-container">
+                    <!-- Tags will be loaded here -->
+                </div>
+            </div>
+
+            <!-- PRIORITY -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label for="priority">PRIORITY</label>
+                    <button type="button" class="info-btn" data-help="PRIORITY_HELP.txt">?</button>
+                </div>
+                <select id="priority">
+                    <option value="">Pasirinkti...</option>
+                </select>
+            </div>
+
+            <!-- DUE -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label>DUE</label>
+                    <button type="button" class="info-btn" data-help="DUE_HELP.txt">?</button>
+                </div>
+                <div class="datetime-row">
+                    <input type="date" id="dueDate">
+                    <div class="time-picker">
+                        <input type="number" id="dueHours" min="0" max="23" placeholder="HH">
+                        <span class="time-separator">:</span>
+                        <input type="number" id="dueMinutes" min="0" max="59" placeholder="MM">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCHEDULED -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label for="scheduled">SCHEDULED</label>
+                    <button type="button" class="info-btn" data-help="SCHEDULED_HELP.txt">?</button>
+                </div>
+                <input type="date" id="scheduled">
+            </div>
+
+            <!-- WAIT -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label for="wait">WAIT</label>
+                    <button type="button" class="info-btn" data-help="WAIT_HELP.txt">?</button>
+                </div>
+                <input type="date" id="wait">
+            </div>
+
+            <!-- RECUR -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label for="recur">RECUR</label>
+                    <button type="button" class="info-btn" data-help="RECUR_HELP.txt">?</button>
+                </div>
+                <select id="recur">
+                    <option value="">Pasirinkti...</option>
+                </select>
+            </div>
+
+            <!-- ESTIMATE -->
+            <div class="field-group">
+                <div class="field-header">
+                    <label>ESTIMATE</label>
+                    <button type="button" class="info-btn" data-help="ESTIMATE_HELP.txt">?</button>
+                </div>
+                <div class="estimate-row">
+                    <input type="number" id="estimateYears" min="0" max="99" placeholder="YY">
+                    <span class="time-separator">:</span>
+                    <input type="number" id="estimateMonths" min="0" max="11" placeholder="MM">
+                    <span class="time-separator">:</span>
+                    <input type="number" id="estimateDays" min="0" max="999" placeholder="DD">
+                    <span class="time-separator">:</span>
+                    <input type="number" id="estimateHours" min="0" max="23" placeholder="HH">
+                    <span class="time-separator">:</span>
+                    <input type="number" id="estimateMinutes" min="0" max="59" placeholder="MM">
+                </div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="buttons-row">
+                <button type="button" id="saveBtn" class="btn btn-primary">SAVE</button>
+                <button type="button" id="exportBtn" class="btn btn-secondary">EXPORT</button>
+            </div>
+        </form>
+
+        <!-- Task Counter -->
+        <div id="taskCounter" class="task-counter">
+            Išsaugota užduočių: <span id="taskCount">0</span>
+        </div>
+
+        <!-- PWA Status -->
+        <div id="pwaNoteStatus" class="pwa-status">
+            <span id="offlineIndicator" style="display: none;">🔴 Offline režimas</span>
+            <span id="onlineIndicator">🟢 Online</span>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>PAGALBA</h3>
+                <button type="button" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="helpContent">
+                <!-- Help content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Include config first, then app -->
+    <script src="projekt/config.js"></script>
+    <script src="projekt/app.js"></script>
+
+    <!-- PWA Registration Script -->
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+        const installBtn = document.getElementById('installBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installPrompt.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            }
+            
+            deferredPrompt = null;
+            installPrompt.style.display = 'none';
+        });
+
+        // Hide install prompt if app is already installed
+        window.addEventListener('appinstalled', () => {
+            installPrompt.style.display = 'none';
+            console.log('PWA was installed');
+        });
+
+        // Online/Offline status
+        const onlineIndicator = document.getElementById('onlineIndicator');
+        const offlineIndicator = document.getElementById('offlineIndicator');
+
+        function updateOnlineStatus() {
+            if (navigator.onLine) {
+                onlineIndicator.style.display = 'inline';
+                offlineIndicator.style.display = 'none';
+            } else {
+                onlineIndicator.style.display = 'none';
+                offlineIndicator.style.display = 'inline';
+            }
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        updateOnlineStatus();
+    </script>
+</body>
+</html>
