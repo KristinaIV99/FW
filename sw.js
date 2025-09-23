@@ -1,6 +1,6 @@
 // sw.js - Service Worker for PWA offline functionality
 
-const CACHE_NAME = 'taskwarrior-composer-v1';
+const CACHE_NAME = 'taskwarrior-composer-v2';
 const STATIC_ASSETS = [
     '/FW/',
     '/FW/index.html',
@@ -45,6 +45,13 @@ self.addEventListener('activate', event => {
             })
     );
     self.clients.claim();
+});
+
+// Message event - handle app updates
+self.addEventListener('message', event => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
 });
 
 // Fetch event - serve cached content when offline
