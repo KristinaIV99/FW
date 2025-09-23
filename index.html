@@ -216,6 +216,22 @@
                         console.log('SW registration failed: ', registrationError);
                     });
             });
+
+            // Automatic update detection
+            navigator.serviceWorker.ready.then(registration => {
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // Parodyti vartotojui pranešimą apie atnaujinimą
+                            if (confirm('Galimas programėlės atnaujinimas. Atnaujinti dabar?')) {
+                                newWorker.postMessage({type: 'SKIP_WAITING'});
+                                window.location.reload();
+                            }
+                        }
+                    });
+                });
+            });
         }
 
         // PWA Install Prompt
