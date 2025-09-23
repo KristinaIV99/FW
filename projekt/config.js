@@ -9,74 +9,47 @@ const CONFIG = {
     PROJECTS: [
         'learning',
         'learning.svenska',
-        'learning.svenska.reading',
-        'learning.svenska.speaking',
-        'learning.svenska.grammar',
         'learning.english',
-        'learning.english.vocabulary',
-        'learning.english.conversation',
-        'learning.english.writing',
         'learning.revit',
-        'learning.revit.basics',
-        'learning.revit.advanced',
-        'learning.programming',
-        'learning.programming.javascript',
-        'learning.programming.python',
-        'learning.programming.react',
-        'work',
-        'work.meetings',
-        'work.meetings.daily',
-        'work.meetings.weekly',
-        'work.meetings.planning',
-        'work.projects',
-        'work.projects.current',
-        'work.projects.archived',
-        'work.admin',
-        'work.admin.reports',
-        'work.admin.documentation',
-        'personal',
-        'personal.health',
-        'personal.health.exercise',
-        'personal.health.nutrition',
-        'personal.health.medical',
-        'personal.finance',
-        'personal.finance.budget',
-        'personal.finance.taxes',
-        'personal.finance.investments',
-        'personal.home',
-        'personal.home.maintenance',
-        'personal.home.cleaning',
-        'personal.home.organization',
-        'planning',
-        'planning.goals',
-        'planning.goals.yearly',
-        'planning.goals.monthly',
-        'planning.goals.weekly',
-        'planning.review',
-        'planning.review.daily',
-        'planning.review.weekly',
-        'planning.review.monthly',
-        'startup',
-        'startup.legal',
-        'startup.legal.contracts',
-        'startup.legal.compliance',
-        'startup.tech',
-        'startup.tech.development',
-        'startup.tech.infrastructure',
-        'startup.marketing',
-        'startup.marketing.content',
-        'startup.marketing.social'
+        'BUNI',
+        'BUNI.programming',
+        'BUNI.DB',
+        'BUNI.DB.svenska',
+        'BUNI.DB.english',
+        'career',
+        'health',
+        'health.physical',
+        'health.mental',
+        'development',
+        'development.book',
+        'house',
+        'home',
+        'home.sewing',
+        'home.cleaning',
+        'sewing',
+        'calendar',
+        'calendar.birthdays',
+        'calendar.anniversaries',
+        'inbox',
+        'lists',
+        'lists.shopping',
+        'lists.travel',
+        'finances',
     ],
 
     // TAGŲ KATEGORIJOS
     TAGS: {
-        LOCATION: ['home', 'office', 'online', 'outdoor', 'indoor', 'travel', 'phone'],
-        ENERGY: ['highenergy', 'lowenergy', 'focused', 'tired', 'motivated'],
-        TIME: ['morning', 'afternoon', 'evening', 'weekend', 'weekday', 'quick', 'longterm'],
-        TYPE: ['meeting', 'call', 'email', 'reading', 'writing', 'research', 'creative', 'learning', 'practice'],
-        COMPLEXITY: ['simple', 'complex', 'routine', 'challenging', 'technical'],
-        IMPORTANCE: ['urgent', 'important', 'critical', 'optional', 'someday'],
-        OTHER: ['computer', 'review', 'planning', 'organizing', 'health', 'exercise', 'cooking', 'shopping', 'cleaning', 'maintenance', 'financial', 'legal', 'social', 'family', 'friends']
+        LOCATION: ['home', 'livingroom', 'bedroom', 'hallway', 'bathroom', 'kitchen', 'basement'],
+        TIME: ['morning', 'afternoon', 'evening', 'weekend'],
+        ENERGY: ['tired'],
+        DURATION: ['quick'],
+        TOOLS: ['computer', 'AI', 'tablet', 'internet', 'lan'],
+        METHOD: ['online'],
+        MOOD: ['dislike', 'hate'],
+        COMPLEXITY: ['simple', 'focus', 'routine', 'technical'],
+        IMPORTANCE: ['urgent', 'important', 'someday'],
+        TYPE: ['coding', 'doctor', 'hobby'],
+        OTHER: ['creative', 'relax']
     },
 
     // PRIORITETŲ SĄRAŠAS
@@ -116,6 +89,20 @@ Pavyzdžiai:
 - Du lygiai: project:learning.svenska
 - Trys lygiai: project:learning.svenska.reading
 
+PROJEKTŲ APRAŠYMAI:
+- learning: mokymasis
+- BUNI: skaitymo programėlė
+- career: karjeros planavimas
+- health: fizinis aktyvumas, psichikos sveikata
+- development: asmeninis/profesinis tobulėjimas
+- house: namo statybos projektas
+- home: namų tvarka
+- sewing: siuvimas
+- calendar: gimtadieniai,progos
+- inbox: neišrūšiuoti/neaiškūs dalykai
+- lists: įvairūs sąrašai
+- finances: įvairūs mokėjimai
+
 Projektai padeda grupuoti susijusias užduotis ir palengvina jų paiešką bei filtravimą Taskwarrior programoje.`,
 
         ANNOTATIONS: `ANNOTATIONS laukas skirtas papildomai informacijai apie užduotį.
@@ -139,13 +126,17 @@ Anotacijos bus pridėtos prie užduoties kaip papildoma informacija.`,
 Tagai suskirstyti į kategorijas. Iš kiekvienos kategorijos galite pasirinkti kelis tagus paspausdami ant jų. Pasirinkti tagai bus pažymėti mėlynai.
 
 Kategorijos:
-- LOCATION: vieta (home, office, online, outdoor...)
-- ENERGY: energijos lygis (highenergy, lowenergy, focused...)
-- TIME: laiko kontekstas (morning, evening, weekend...)
-- TYPE: veiklos tipas (meeting, call, email, reading...)
-- COMPLEXITY: sudėtingumas (simple, complex, routine...)
-- IMPORTANCE: svarba (urgent, important, critical...)
-- OTHER: kiti (computer, health, financial...)
+- LOCATION: vieta (home, livingroom, bedroom, hallway, bathroom, kitchen, basement)
+- TIME: laiko kontekstas (morning, afternoon, evening, weekend)
+- ENERGY: energijos lygis (tired)
+- DURATION: trukmė (quick)
+- TOOLS: reikalingi įrankiai (computer, AI, tablet, internet, lan)
+- METHOD: vykdymo būdas (online)
+- MOOD: nuotaika (dislike, hate)
+- COMPLEXITY: sudėtingumas (simple, focus, routine, technical)
+- IMPORTANCE: svarba (urgent, important, someday)
+- TYPE: veiklos tipas (coding, doctor, hobby)
+- OTHER: kiti (creative, relax)
 
 Pavyzdys rezultate: +home,+highenergy,+evening,+computer,+learning
 
