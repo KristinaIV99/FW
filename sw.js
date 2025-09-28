@@ -1,6 +1,6 @@
 // sw.js - Service Worker for PWA offline functionality
 
-const CACHE_NAME = 'taskwarrior-composer-v2';
+const CACHE_NAME = 'taskwarrior-composer-v3';
 const STATIC_ASSETS = [
     '/FW/',
     '/FW/index.html',
