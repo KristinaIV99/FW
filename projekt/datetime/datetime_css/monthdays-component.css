@@ -1,0 +1,420 @@
+/* projekt/datetime/datetime_css/monthdays-component.css */
+/* Month Days Component - Adapted input design iš pavyzdžio projekto */
+
+/* =============================================================================
+   CENTERED INPUT CONTAINER
+   ============================================================================= */
+
+.component-card[data-component="monthdays"] .centered-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.component-card[data-component="monthdays"] .centered-input:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e0;
+}
+
+.component-card[data-component="monthdays"] .centered-input:focus-within {
+    background: white;
+    border-color: #48bb78;
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+}
+
+/* =============================================================================
+   MONTHDAY INPUT FIELD - Styled like time component
+   ============================================================================= */
+
+.component-card[data-component="monthdays"] .monthday-input {
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d3748;
+    background: white;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover State */
+.component-card[data-component="monthdays"] .monthday-input:hover {
+    border-color: #cbd5e0;
+    background: #f7fafc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus State */
+.component-card[data-component="monthdays"] .monthday-input:focus {
+    outline: none;
+    border-color: #48bb78;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+/* Active State */
+.component-card[data-component="monthdays"] .monthday-input:focus {
+    color: #1a202c;
+}
+
+/* Placeholder Styling */
+.component-card[data-component="monthdays"] .monthday-input::placeholder {
+    color: #a0aec0;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Remove spinner arrows */
+.component-card[data-component="monthdays"] .monthday-input {
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.component-card[data-component="monthdays"] .monthday-input::-webkit-outer-spin-button,
+.component-card[data-component="monthdays"] .monthday-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* =============================================================================
+   MONTHDAY PREVIEW - Unique design
+   ============================================================================= */
+
+.component-card[data-component="monthdays"] .monthday-preview {
+    margin: 15px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d3748;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 12px 20px;
+    border: 2px solid #48bb78;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.15);
+    transition: all 0.3s ease;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+}
+
+.component-card[data-component="monthdays"] .monthday-preview:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.2);
+}
+
+/* =============================================================================
+   HELPER TEXT
+   ============================================================================= */
+
+.component-card[data-component="monthdays"] .helper-text {
+    font-size: 11px;
+    margin-top: 12px;
+    text-align: center;
+    color: #718096;
+    line-height: 1.4;
+    padding: 6px 12px;
+    background: #f7fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+/* =============================================================================
+   VALIDATION STATES
+   ============================================================================= */
+
+/* Error State */
+.component-card[data-component="monthdays"] .monthday-input.error {
+    border-color: #f56565;
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.component-card[data-component="monthdays"] .monthday-input.error:focus {
+    border-color: #f56565;
+    box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.2);
+}
+
+.component-card[data-component="monthdays"] .monthday-preview.error {
+    border-color: #f56565;
+    background: #fed7d7;
+    color: #c53030;
+}
+
+/* Success State */
+.component-card[data-component="monthdays"] .monthday-input.success {
+    border-color: #48bb78;
+    background: #c6f6d5;
+    color: #2f855a;
+}
+
+/* =============================================================================
+   ACTIVE COMPONENT ENHANCED STYLING
+   ============================================================================= */
+
+.component-card[data-component="monthdays"].active .centered-input {
+    background: white;
+    border-color: #48bb78;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.15);
+    transform: translateY(-1px);
+}
+
+.component-card[data-component="monthdays"].active .monthday-input {
+    border-color: #48bb78;
+    background: white;
+    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.1);
+}
+
+.component-card[data-component="monthdays"].active .monthday-preview {
+    border-color: #38a169;
+    box-shadow: 0 4px 16px rgba(72, 187, 120, 0.25);
+}
+
+.component-card[data-component="monthdays"].active .helper-text {
+    background: #c6f6d5;
+    border-color: #48bb78;
+    color: #2f855a;
+}
+
+/* =============================================================================
+   ANIMATION ENHANCEMENTS
+   ============================================================================= */
+
+/* Subtle pulse when active */
+.component-card[data-component="monthdays"].active .centered-input {
+    animation: subtlePulseMonthdays 2s ease-in-out infinite;
+}
+
+@keyframes subtlePulseMonthdays {
+    0%, 100% { box-shadow: 0 4px 12px rgba(72, 187, 120, 0.15); }
+    50% { box-shadow: 0 6px 20px rgba(72, 187, 120, 0.25); }
+}
+
+/* Input transition animations */
+.component-card[data-component="monthdays"] .monthday-input {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.component-card[data-component="monthdays"] .monthday-preview {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Number increment/decrement animation */
+.component-card[data-component="monthdays"] .monthday-input.changing {
+    animation: numberChange 0.3s ease-in-out;
+}
+
+@keyframes numberChange {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); background: #c6f6d5; }
+    100% { transform: scale(1); }
+}
+
+/* Preview update animation */
+.component-card[data-component="monthdays"] .monthday-preview.updating {
+    animation: previewUpdate 0.4s ease-in-out;
+}
+
+@keyframes previewUpdate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); border-color: #38a169; }
+    100% { transform: scale(1); }
+}
+
+/* =============================================================================
+   INTERACTIVE FEEDBACK
+   ============================================================================= */
+
+/* Add visual feedback for keyboard navigation */
+.component-card[data-component="monthdays"] .monthday-input[data-key-nav="true"] {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.3);
+}
+
+/* Highlight when value changes via arrows */
+.component-card[data-component="monthdays"] .monthday-input.arrow-changed {
+    background: linear-gradient(45deg, #c6f6d5, white);
+    animation: arrowChange 0.5s ease-out;
+}
+
+@keyframes arrowChange {
+    0% { background: #c6f6d5; }
+    100% { background: white; }
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+
+@media (max-width: 768px) {
+    .component-card[data-component="monthdays"] .centered-input {
+        padding: 12px;
+        margin: 12px 0;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-input {
+        width: 70px;
+        height: 45px;
+        font-size: 18px;
+        padding: 10px 14px;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-preview {
+        font-size: 16px;
+        padding: 10px 16px;
+        min-height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .component-card[data-component="monthdays"] .centered-input {
+        padding: 10px;
+        margin: 10px 0;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-input {
+        width: 65px;
+        height: 40px;
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-preview {
+        font-size: 14px;
+        padding: 8px 12px;
+        min-height: 40px;
+        margin: 10px 0;
+    }
+    
+    .component-card[data-component="monthdays"] .helper-text {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+
+/* =============================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================================================= */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .component-card[data-component="monthdays"] .monthday-input {
+        border-width: 3px;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-preview {
+        border-width: 3px;
+        background: #000;
+        color: #fff;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .component-card[data-component="monthdays"] .monthday-input,
+    .component-card[data-component="monthdays"] .monthday-preview,
+    .component-card[data-component="monthdays"] .centered-input {
+        transition: none;
+        animation: none;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-input:focus {
+        transform: none;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-preview:hover {
+        transform: none;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+.component-card[data-component="monthdays"] .monthday-input:focus-visible {
+    outline: 3px solid #48bb78;
+    outline-offset: 2px;
+}
+
+/* Screen reader support */
+.component-card[data-component="monthdays"] .monthday-input[aria-label] {
+    /* Enhanced accessibility when aria-label is present */
+}
+
+/* =============================================================================
+   DARK MODE SUPPORT (Optional)
+   ============================================================================= */
+
+@media (prefers-color-scheme: dark) {
+    .component-card[data-component="monthdays"] .centered-input {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-input {
+        background: #1a202c;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-input:focus {
+        background: #2d3748;
+        border-color: #48bb78;
+    }
+    
+    .component-card[data-component="monthdays"] .monthday-preview {
+        background: #1a202c;
+        color: #e2e8f0;
+        border-color: #4a5568;
+    }
+    
+    .component-card[data-component="monthdays"] .helper-text {
+        background: #1a202c;
+        color: #a0aec0;
+        border-color: #4a5568;
+    }
+}
+
+/* =============================================================================
+   SPECIAL EFFECTS
+   ============================================================================= */
+
+/* Add a subtle glow effect when focused */
+.component-card[data-component="monthdays"] .monthday-input:focus {
+    position: relative;
+}
+
+.component-card[data-component="monthdays"] .monthday-input:focus::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #48bb78, #38a169);
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0.3;
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}

@@ -1,0 +1,237 @@
+/* projekt/css/description-card.css */
+/* TaskWarrior Composer - Description Card - CLEAN */
+
+/* ===== MILESTONE ROW CONTAINER ===== */
+.milestone-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--space-4);
+}
+
+/* ===== MILESTONE BUTTON ===== */
+.milestone-btn {
+    background: var(--color-gray-700);
+    color: var(--color-white);
+    border: 2px solid var(--color-gray-600);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3) var(--space-5);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: 
+        0 8px 25px rgba(0,0,0,0.15),
+        0 0 20px rgba(66, 153, 225, 0.3);
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    font-family: var(--font-family-base);
+}
+
+/* Neon glow ring efektas */
+.milestone-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--color-primary);
+    border-radius: var(--radius-xl);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+/* Shine efektas */
+.milestone-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left var(--transition-slow);
+}
+
+.milestone-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 15px 35px rgba(0,0,0,0.2),
+        0 0 40px rgba(66, 153, 225, 0.6);
+    border-color: var(--color-primary);
+}
+
+.milestone-btn:hover::before {
+    opacity: 1;
+}
+
+.milestone-btn:hover::after {
+    left: 100%;
+}
+
+.milestone-btn:focus {
+    outline: none;
+    box-shadow: 
+        0 8px 25px rgba(0,0,0,0.15),
+        0 0 20px rgba(66, 153, 225, 0.3),
+        0 0 0 3px var(--focus-ring-color);
+}
+
+/* Active state - mėlynas */
+.milestone-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 
+        0 8px 25px rgba(66, 153, 225, 0.4),
+        0 0 30px rgba(66, 153, 225, 0.8);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { 
+        box-shadow: 
+            0 8px 25px rgba(66, 153, 225, 0.4),
+            0 0 30px rgba(66, 153, 225, 0.8);
+    }
+    50% { 
+        box-shadow: 
+            0 12px 35px rgba(66, 153, 225, 0.6),
+            0 0 50px rgba(66, 153, 225, 1);
+    }
+}
+
+/* ===== DESCRIPTION TEXTAREA ===== */
+.description-textarea {
+    width: 100%;
+    min-height: 70px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: var(--space-4);
+    border: 2px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    font-size: 14px;
+    font-family: var(--font-family-base);
+    color: var(--color-gray-700);
+    background: var(--color-white);
+    transition: all var(--transition-normal);
+    resize: none;
+    line-height: 1.6;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.description-textarea::placeholder {
+    color: var(--color-gray-400);
+    font-style: italic;
+}
+
+.description-textarea:hover {
+    border-color: var(--color-gray-300);
+    background: var(--color-white);
+    box-shadow: 
+        inset 0 2px 4px rgba(0,0,0,0.05),
+        0 0 15px rgba(66, 153, 225, 0.2);
+}
+
+.description-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--color-white);
+    box-shadow: 
+        0 0 0 3px var(--focus-ring-color),
+        0 0 30px rgba(66, 153, 225, 0.4),
+        inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ===== TECH GRID BACKGROUND (subtle) ===== */
+[data-card="description"] .card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(66, 153, 225, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(66, 153, 225, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    z-index: 1;
+}
+
+/* Ensure content is above grid */
+.milestone-row,
+.description-textarea {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== VALIDATION STATES ===== */
+.description-textarea.invalid {
+    border-color: var(--color-error);
+    background: rgba(245, 101, 101, 0.05);
+}
+
+.description-textarea.invalid:focus {
+    box-shadow: 
+        0 0 0 3px rgba(245, 101, 101, 0.2),
+        0 0 20px rgba(245, 101, 101, 0.4);
+}
+
+.validation-message {
+    font-size: 12px;
+    color: var(--color-error);
+    margin-top: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: rgba(245, 101, 101, 0.1);
+    border-left: 3px solid var(--color-error);
+    border-radius: var(--radius-sm);
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/*@media (max-width: 768px) {
+    .milestone-btn {
+        transform: none !important;
+    }
+    
+    .milestone-btn:hover {
+        transform: none;
+    }
+    
+    .description-textarea {
+        min-height: 120px;
+        font-size: 16px; /* iOS zoom prevention */
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.milestone-btn:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.description-textarea:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===== PRINT STYLES ===== */
+/*@media print {
+    .milestone-btn::before,
+    .milestone-btn::after {
+        display: none;
+    }
+    
+    .milestone-btn {
+        box-shadow: none;
+        background: var(--color-gray-300) !important;
+        color: var(--color-gray-700) !important;
+    }
+}*/

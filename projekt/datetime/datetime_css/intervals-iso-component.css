@@ -1,0 +1,482 @@
+/* projekt/datetime/datetime_css/intervals-iso-component.css */
+/* ISO Intervals Component - Adapted design iš pavyzdžio projekto */
+
+/* =============================================================================
+   ISO INPUT CONTAINER
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"] .iso-input-container {
+    text-align: center;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.component-card[data-component="intervals-iso"] .iso-input-container:focus-within {
+    background: white;
+    border-color: #805ad5;
+    box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.1);
+}
+
+/* =============================================================================
+   ISO FORMAT LABEL
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"] .iso-format-label {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: inline-block;
+}
+
+/* =============================================================================
+   ISO INPUTS GRID - Adapted iš pavyzdžio
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"] .iso-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+/* =============================================================================
+   ISO INPUT FIELDS - Styled like example
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"] .iso-input {
+    width: 45px;
+    height: 40px;
+    text-align: center;
+    padding: 6px 4px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
+    background: white;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.component-card[data-component="intervals-iso"] .iso-input-wide {
+    width: 55px;
+    height: 40px;
+    text-align: center;
+    padding: 6px 4px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
+    background: white;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', monospace;
+}
+
+/* Hover State */
+.component-card[data-component="intervals-iso"] .iso-input:hover,
+.component-card[data-component="intervals-iso"] .iso-input-wide:hover {
+    border-color: #cbd5e0;
+    background: #f7fafc;
+}
+
+/* Focus State */
+.component-card[data-component="intervals-iso"] .iso-input:focus,
+.component-card[data-component="intervals-iso"] .iso-input-wide:focus {
+    outline: none;
+    border-color: #805ad5;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.2);
+    transform: scale(1.05);
+}
+
+/* Placeholder Styling */
+.component-card[data-component="intervals-iso"] .iso-input::placeholder,
+.component-card[data-component="intervals-iso"] .iso-input-wide::placeholder {
+    color: #a0aec0;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* Remove spinner arrows */
+.component-card[data-component="intervals-iso"] .iso-input,
+.component-card[data-component="intervals-iso"] .iso-input-wide {
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.component-card[data-component="intervals-iso"] .iso-input::-webkit-outer-spin-button,
+.component-card[data-component="intervals-iso"] .iso-input::-webkit-inner-spin-button,
+.component-card[data-component="intervals-iso"] .iso-input-wide::-webkit-outer-spin-button,
+.component-card[data-component="intervals-iso"] .iso-input-wide::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* =============================================================================
+   ISO SEPARATORS - Styled like example
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"] .iso-separator {
+    font-size: 16px;
+    font-weight: bold;
+    color: #805ad5;
+    margin: 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    text-shadow: 0 1px 2px rgba(128, 90, 213, 0.2);
+    transition: color 0.2s ease;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Special styling for 'D T' separator */
+.component-card[data-component="intervals-iso"] .iso-separator:contains('D T') {
+    font-size: 14px;
+    color: #6b46c1;
+    margin: 0 4px;
+}
+
+/* Animation when focused */
+.component-card[data-component="intervals-iso"] .iso-inputs:focus-within .iso-separator {
+    color: #6b46c1;
+    transform: scale(1.1);
+}
+
+/* =============================================================================
+   ISO PREVIEW - Enhanced design
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"] .iso-preview {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 15px;
+    color: #2d3748;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #805ad5 0%, #6b46c1 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px 20px;
+    border: 2px solid #805ad5;
+    border-radius: 8px;
+    background-color: white;
+    position: relative;
+    text-align: center;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(128, 90, 213, 0.15);
+}
+
+.component-card[data-component="intervals-iso"] .iso-preview.empty {
+    color: #a0aec0;
+    border-color: #e2e8f0;
+    background: #f7fafc;
+    box-shadow: none;
+    font-style: italic;
+}
+
+.component-card[data-component="intervals-iso"] .iso-preview.empty::before {
+    content: 'P (Tuščias intervalas)';
+}
+
+/* =============================================================================
+   HELPER TEXT
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"] .helper-text {
+    font-size: 11px;
+    margin-top: 12px;
+    text-align: center;
+    color: #718096;
+    line-height: 1.4;
+    padding: 6px 12px;
+    background: #f7fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+/* =============================================================================
+   VALIDATION STATES
+   ============================================================================= */
+
+/* Error State */
+.component-card[data-component="intervals-iso"] .iso-input.error,
+.component-card[data-component="intervals-iso"] .iso-input-wide.error {
+    border-color: #f56565;
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.component-card[data-component="intervals-iso"] .iso-input.error:focus,
+.component-card[data-component="intervals-iso"] .iso-input-wide.error:focus {
+    border-color: #f56565;
+    box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.2);
+}
+
+/* Success State */
+.component-card[data-component="intervals-iso"] .iso-input.success,
+.component-card[data-component="intervals-iso"] .iso-input-wide.success {
+    border-color: #48bb78;
+    background: #c6f6d5;
+    color: #2f855a;
+}
+
+/* =============================================================================
+   ACTIVE COMPONENT ENHANCED STYLING
+   ============================================================================= */
+
+.component-card[data-component="intervals-iso"].active .iso-input-container {
+    background: white;
+    border-color: #805ad5;
+    box-shadow: 0 4px 12px rgba(128, 90, 213, 0.15);
+    transform: translateY(-1px);
+}
+
+.component-card[data-component="intervals-iso"].active .iso-inputs {
+    border-color: #805ad5;
+    background: white;
+}
+
+.component-card[data-component="intervals-iso"].active .iso-input,
+.component-card[data-component="intervals-iso"].active .iso-input-wide {
+    border-color: #805ad5;
+    background: white;
+}
+
+.component-card[data-component="intervals-iso"].active .iso-separator {
+    color: #6b46c1;
+}
+
+.component-card[data-component="intervals-iso"].active .helper-text {
+    background: #f3e8ff;
+    border-color: #805ad5;
+    color: #553c9a;
+}
+
+.component-card[data-component="intervals-iso"].active .iso-format-label {
+    background: #f3e8ff;
+    border-color: #805ad5;
+    color: #553c9a;
+}
+
+.component-card[data-component="intervals-iso"].active .iso-preview {
+    border-color: #6b46c1;
+    box-shadow: 0 4px 16px rgba(128, 90, 213, 0.25);
+}
+
+/* =============================================================================
+   ANIMATION ENHANCEMENTS
+   ============================================================================= */
+
+/* Subtle pulse when active */
+.component-card[data-component="intervals-iso"].active .iso-input-container {
+    animation: subtlePulseIso 2s ease-in-out infinite;
+}
+
+@keyframes subtlePulseIso {
+    0%, 100% { box-shadow: 0 4px 12px rgba(128, 90, 213, 0.15); }
+    50% { box-shadow: 0 6px 20px rgba(128, 90, 213, 0.25); }
+}
+
+/* Input transition animations */
+.component-card[data-component="intervals-iso"] .iso-input,
+.component-card[data-component="intervals-iso"] .iso-input-wide {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.component-card[data-component="intervals-iso"] .iso-separator {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.component-card[data-component="intervals-iso"] .iso-preview {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+
+@media (max-width: 768px) {
+    .component-card[data-component="intervals-iso"] .iso-input-container {
+        padding: 12px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-inputs {
+        gap: 4px;
+        padding: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-input,
+    .component-card[data-component="intervals-iso"] .iso-input-wide {
+        width: 40px;
+        height: 36px;
+        font-size: 13px;
+        padding: 4px 2px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-separator {
+        font-size: 14px;
+        margin: 0 1px;
+        min-width: 15px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-preview {
+        font-size: 14px;
+        padding: 8px 16px;
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .component-card[data-component="intervals-iso"] .iso-input-container {
+        padding: 10px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-inputs {
+        gap: 2px;
+        padding: 6px;
+        justify-content: center;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-input,
+    .component-card[data-component="intervals-iso"] .iso-input-wide {
+        width: 35px;
+        height: 32px;
+        font-size: 12px;
+        padding: 2px 1px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-separator {
+        font-size: 12px;
+        margin: 0;
+        min-width: 12px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-preview {
+        font-size: 12px;
+        padding: 6px 12px;
+        min-height: 36px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .helper-text {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-format-label {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+/* =============================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================================================= */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .component-card[data-component="intervals-iso"] .iso-input,
+    .component-card[data-component="intervals-iso"] .iso-input-wide {
+        border-width: 3px;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-separator {
+        font-weight: 900;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-preview {
+        border-width: 3px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .component-card[data-component="intervals-iso"] .iso-input,
+    .component-card[data-component="intervals-iso"] .iso-input-wide,
+    .component-card[data-component="intervals-iso"] .iso-separator,
+    .component-card[data-component="intervals-iso"] .iso-preview,
+    .component-card[data-component="intervals-iso"] .iso-input-container {
+        transition: none;
+        animation: none;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-input:focus,
+    .component-card[data-component="intervals-iso"] .iso-input-wide:focus {
+        transform: none;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+.component-card[data-component="intervals-iso"] .iso-input:focus-visible,
+.component-card[data-component="intervals-iso"] .iso-input-wide:focus-visible {
+    outline: 3px solid #805ad5;
+    outline-offset: 2px;
+}
+
+/* =============================================================================
+   DARK MODE SUPPORT (Optional)
+   ============================================================================= */
+
+@media (prefers-color-scheme: dark) {
+    .component-card[data-component="intervals-iso"] .iso-input-container {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-inputs {
+        background: #1a202c;
+        border-color: #4a5568;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-input,
+    .component-card[data-component="intervals-iso"] .iso-input-wide {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-input:focus,
+    .component-card[data-component="intervals-iso"] .iso-input-wide:focus {
+        background: #4a5568;
+        border-color: #805ad5;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-preview {
+        background: #1a202c;
+        color: #e2e8f0;
+        border-color: #4a5568;
+    }
+    
+    .component-card[data-component="intervals-iso"] .helper-text {
+        background: #1a202c;
+        color: #a0aec0;
+        border-color: #4a5568;
+    }
+    
+    .component-card[data-component="intervals-iso"] .iso-format-label {
+        background: #1a202c;
+        color: #a0aec0;
+        border-color: #4a5568;
+    }
+}

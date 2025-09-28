@@ -1,0 +1,393 @@
+/* TaskWarrior Composer - Estimate Card */
+
+/* ===== ESTIMATE PICKER STILIAI ===== */
+
+.estimate-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: #f0f9ff;
+    border: 3px solid #4299e1;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-family: 'SF Mono', Monaco, Consolas, 'Courier New', monospace;
+    transition: all 0.3s ease;
+}
+
+.estimate-picker:focus-within {
+    border-color: #2563eb;
+    background: #dbeafe;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    transform: translateY(-1px);
+}
+
+.estimate-picker:hover {
+    border-color: #3b82f6;
+    background: #e0f2fe;
+}
+
+/* ===== INPUT LAUKAI ===== */
+.estimate-input {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e40af;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.estimate-input-wide {
+    width: 50px; /* Platesnis DD laukas */
+}
+
+.estimate-input:focus {
+    outline: none;
+    background: #bae6fd;
+    color: #0c4a6e;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 2px #0369a1;
+}
+
+.estimate-input:hover {
+    background: rgba(186, 230, 253, 0.5);
+}
+
+.estimate-input::-webkit-outer-spin-button,
+.estimate-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.estimate-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.estimate-input::placeholder {
+    color: #60a5fa;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.estimate-input:not(:placeholder-shown) {
+    color: #0c4a6e;
+    background: rgba(186, 230, 253, 0.3);
+}
+
+/* ===== SEPARATORIAI ===== */
+.estimate-separator {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3b82f6;
+    margin: 0 4px;
+    user-select: none;
+    text-shadow: 0 1px 2px rgba(59, 130, 246, 0.3);
+}
+
+/* ===== HELP TEXT ===== */
+.estimate-help {
+    text-align: center;
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* ===== PREVIEW SEKCIJA ===== */
+.estimate-preview {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.preview-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.preview-value {
+    font-family: 'SF Mono', Monaco, Consolas, 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: #64748b;
+    background: white;
+    border: 2px solid #cbd5e0;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+    transition: all 0.3s ease;
+    word-break: break-all;
+}
+
+.preview-value.has-value {
+    color: #059669;
+    border-color: #10b981;
+    background: #f0fdf4;
+    animation: previewPulse 0.5s ease;
+}
+
+@keyframes previewPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* ===== ANIMACIJOS ===== */
+.estimate-picker {
+    animation: pickerSlideIn 0.4s ease;
+}
+
+@keyframes pickerSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.estimate-input:focus {
+    animation: inputFocusGlow 0.3s ease;
+}
+
+@keyframes inputFocusGlow {
+    0% { 
+        background: transparent;
+        transform: scale(1);
+    }
+    50% {
+        background: #bae6fd;
+        transform: scale(1.08);
+    }
+    100% { 
+        background: #bae6fd;
+        transform: scale(1.05);
+    }
+}
+
+.field-estimate {
+    color: #8b5cf6; /* Violetinė spalva estimate laukui */
+}
+
+/* ===== VALIDATION STILIAI ===== */
+.estimate-input.error {
+    background: #fef2f2;
+    color: #dc2626;
+    box-shadow: 0 0 0 2px #ef4444;
+}
+
+.estimate-input.error:focus {
+    background: #fee2e2;
+    box-shadow: 0 0 0 2px #dc2626;
+}
+
+/* ===== KEYBOARD NAVIGATION ===== */
+.estimate-input:focus {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== RESPONSIVE STILIAI ===== */
+/*@media (max-width: 768px) {
+    .estimate-picker {
+        padding: 14px 16px;
+        gap: 3px;
+    }
+    
+    .estimate-input {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+    
+    .estimate-input-wide {
+        width: 44px;
+    }
+    
+    .estimate-separator {
+        font-size: 20px;
+        margin: 0 2px;
+    }
+    
+    .preview-value {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .estimate-preview {
+        padding: 12px;
+    }
+}
+*/
+
+/*@media (max-width: 480px) {
+    .estimate-picker {
+        padding: 12px 14px;
+        gap: 2px;
+        border-radius: 10px;
+    }
+    
+    .estimate-input {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }
+    
+    .estimate-input-wide {
+        width: 40px;
+    }
+    
+    .estimate-separator {
+        font-size: 18px;
+        margin: 0 1px;
+    }
+    
+    .estimate-help {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+    
+    .preview-value {
+        font-size: 13px;
+        padding: 8px;
+    }
+    
+    .estimate-preview {
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+*/
+
+/*@media (max-width: 360px) {
+    .estimate-picker {
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .estimate-input {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+    
+    .estimate-input-wide {
+        width: 36px;
+    }
+    
+    .estimate-separator {
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    .estimate-help {
+        font-size: 10px;
+    }
+}
+*/
+
+/* ===== HIGH CONTRAST MODE ===== */
+/*@media (prefers-contrast: high) {
+    .estimate-picker {
+        border-color: #000;
+        background: #fff;
+    }
+    
+    .estimate-input {
+        color: #000;
+    }
+    
+    .estimate-input:focus {
+        background: #e6e6e6;
+        box-shadow: 0 0 0 2px #000;
+    }
+    
+    .estimate-separator {
+        color: #000;
+    }
+    
+    .estimate-input::placeholder {
+        color: #666;
+    }
+}
+*/
+
+/* ===== ACCESSIBILITY ===== */
+/*@media (prefers-reduced-motion: reduce) {
+    .estimate-picker,
+    .estimate-input,
+    .preview-value {
+        transition: none;
+        animation: none;
+    }
+}
+*/
+
+/* ===== DARK MODE SUPPORT ===== */
+/*@media (prefers-color-scheme: dark) {
+    .estimate-picker {
+        background: #1e3a8a;
+        border-color: #3b82f6;
+    }
+    
+    .estimate-picker:focus-within {
+        background: #1e40af;
+        border-color: #60a5fa;
+    }
+    
+    .estimate-input {
+        color: #dbeafe;
+    }
+    
+    .estimate-input:focus {
+        background: #3730a3;
+        color: #f0f9ff;
+    }
+    
+    .estimate-input::placeholder {
+        color: #93c5fd;
+    }
+    
+    .estimate-separator {
+        color: #93c5fd;
+    }
+    
+    .estimate-preview {
+        background: #1f2937;
+        border-color: #374151;
+    }
+    
+    .preview-value {
+        background: #111827;
+        border-color: #4b5563;
+        color: #e5e7eb;
+    }
+    
+    .preview-value.has-value {
+        color: #34d399;
+        border-color: #059669;
+        background: #064e3b;
+    }
+    
+    .estimate-help {
+        color: #9ca3af;
+    }
+}
+*/

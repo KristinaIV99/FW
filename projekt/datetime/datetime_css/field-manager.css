@@ -1,0 +1,269 @@
+/* projekt/datetime/datetime_css/field-manager.css */
+/* Field Button Stiliai - Adapted iš kito projekto */
+
+/* =============================================================================
+   FIELD SELECTOR SECTION
+   ============================================================================= */
+
+.field-selector {
+    padding: 20px;
+    background: #f7fafc;
+    border-bottom: 2px solid #e2e8f0;
+    border-radius: 12px 12px 0 0;
+}
+
+/* =============================================================================
+   FIELD BUTTONS CONTAINER
+   ============================================================================= */
+
+.field-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =============================================================================
+   FIELD BUTTON STYLING
+   ============================================================================= */
+
+.field-btn {
+    padding: 12px 20px;
+    border: 2px solid #cbd5e0;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 14px;
+    font-family: inherit;
+    min-width: 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect */
+.field-btn:hover {
+    border-color: #4299e1;
+    background: #ebf8ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.15);
+}
+
+/* Active State */
+.field-btn.active {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: white;
+    border-color: #4299e1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+}
+
+.field-btn.active:hover {
+    background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
+    box-shadow: 0 8px 25px rgba(66, 153, 225, 0.5);
+}
+
+/* Focus State */
+.field-btn:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Disabled State */
+.field-btn:disabled {
+    background: #f7fafc;
+    color: #a0aec0;
+    border-color: #e2e8f0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.field-btn:disabled:hover {
+    background: #f7fafc;
+    color: #a0aec0;
+    border-color: #e2e8f0;
+    transform: none;
+    box-shadow: none;
+}
+
+/* =============================================================================
+   FIELD BUTTON VARIANTS
+   ============================================================================= */
+
+/* DUE field - šviesiai mėlyna */
+.field-btn[data-field="DUE"].active {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+/* WAIT field - oranžinė */
+.field-btn[data-field="WAIT"].active {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+    border-color: #ed8936;
+}
+
+.field-btn[data-field="WAIT"].active:hover {
+    background: linear-gradient(135deg, #dd6b20 0%, #c05621 100%);
+}
+
+/* SCHEDULED field - žalia */
+.field-btn[data-field="SCHEDULED"].active {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    border-color: #48bb78;
+}
+
+.field-btn[data-field="SCHEDULED"].active:hover {
+    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+}
+
+/* RECUR field - violetinė */
+.field-btn[data-field="RECUR"].active {
+    background: linear-gradient(135deg, #805ad5 0%, #6b46c1 100%);
+    border-color: #805ad5;
+}
+
+.field-btn[data-field="RECUR"].active:hover {
+    background: linear-gradient(135deg, #6b46c1 0%, #553c9a 100%);
+}
+
+/* UNTIL field - raudona */
+.field-btn[data-field="UNTIL"].active {
+    background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    border-color: #f56565;
+}
+
+.field-btn[data-field="UNTIL"].active:hover {
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+}
+
+/* =============================================================================
+   FIELD BUTTON LOADING STATE
+   ============================================================================= */
+
+.field-btn.loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+.field-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* =============================================================================
+   FIELD BUTTON ANIMATIONS
+   ============================================================================= */
+
+/* Ripple effect on click */
+.field-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.field-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+
+@media (max-width: 768px) {
+    .field-selector {
+        padding: 15px;
+    }
+    
+    .field-buttons {
+        gap: 8px;
+        justify-content: stretch;
+    }
+    
+    .field-btn {
+        flex: 1;
+        min-width: unset;
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .field-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .field-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+}
+
+/* =============================================================================
+   ACCESSIBILITY
+   ============================================================================= */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .field-btn {
+        border-width: 3px;
+    }
+    
+    .field-btn.active {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .field-btn {
+        transition: none;
+    }
+    
+    .field-btn.loading::after {
+        animation: none;
+    }
+}
+
+/* =============================================================================
+   FIELD BUTTON STATES DEBUG
+   ============================================================================= */
+
+/* Debug borders (remove in production) */
+.debug .field-btn {
+    outline: 1px dashed rgba(255, 0, 0, 0.3);
+}
+
+.debug .field-btn.active {
+    outline: 1px dashed rgba(0, 255, 0, 0.5);
+}

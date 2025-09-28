@@ -1,0 +1,311 @@
+/* projekt/datetime/datetime_css/time-component.css */
+/* Time Component Stiliai - Adapted iš pavyzdžio projekto design */
+
+/* =============================================================================
+   TIME INPUT CONTAINER
+   ============================================================================= */
+
+.component-card[data-component="time"] .time-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.component-card[data-component="time"] .time-input-container:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e0;
+}
+
+.component-card[data-component="time"] .time-input-container:focus-within {
+    background: white;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+/* =============================================================================
+   TIME INPUT FIELDS - Adapted iš pavyzdžio
+   ============================================================================= */
+
+.component-card[data-component="time"] .time-input {
+    width: 60px;
+    height: 45px;
+    text-align: center;
+    padding: 8px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    background: white;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', monospace;
+}
+
+/* Hover State */
+.component-card[data-component="time"] .time-input:hover {
+    border-color: #cbd5e0;
+    background: #f7fafc;
+}
+
+/* Focus State */
+.component-card[data-component="time"] .time-input:focus {
+    outline: none;
+    border-color: #4299e1;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+    transform: scale(1.02);
+}
+
+/* Active/Selected State */
+.component-card[data-component="time"] .time-input:focus {
+    color: #1a202c;
+}
+
+/* Placeholder Styling */
+.component-card[data-component="time"] .time-input::placeholder {
+    color: #a0aec0;
+    font-weight: 400;
+}
+
+/* Remove spinner arrows */
+.component-card[data-component="time"] .time-input {
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.component-card[data-component="time"] .time-input::-webkit-outer-spin-button,
+.component-card[data-component="time"] .time-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* =============================================================================
+   TIME SEPARATOR - Styled like example
+   ============================================================================= */
+
+.component-card[data-component="time"] .time-separator {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4299e1;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    text-shadow: 0 1px 2px rgba(66, 153, 225, 0.2);
+    transition: color 0.2s ease;
+}
+
+/* Animation when focused */
+.component-card[data-component="time"] .time-input-container:focus-within .time-separator {
+    color: #3182ce;
+    transform: scale(1.1);
+}
+
+/* =============================================================================
+   HELPER TEXT - Consistent with example design
+   ============================================================================= */
+
+.component-card[data-component="time"] .helper-text {
+    font-size: 11px;
+    margin-top: 12px;
+    text-align: center;
+    color: #718096;
+    line-height: 1.4;
+    padding: 0 10px;
+    background: #f7fafc;
+    border-radius: 6px;
+    padding: 6px 12px;
+    border: 1px solid #e2e8f0;
+}
+
+/* =============================================================================
+   VALIDATION STATES
+   ============================================================================= */
+
+/* Error State */
+.component-card[data-component="time"] .time-input.error {
+    border-color: #f56565;
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.component-card[data-component="time"] .time-input.error:focus {
+    border-color: #f56565;
+    box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.2);
+}
+
+/* Success State */
+.component-card[data-component="time"] .time-input.success {
+    border-color: #48bb78;
+    background: #c6f6d5;
+    color: #2f855a;
+}
+
+/* =============================================================================
+   ACTIVE COMPONENT ENHANCED STYLING
+   ============================================================================= */
+
+.component-card[data-component="time"].active .time-input-container {
+    background: white;
+    border-color: #4299e1;
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.15);
+    transform: translateY(-1px);
+}
+
+.component-card[data-component="time"].active .time-input {
+    border-color: #4299e1;
+    background: white;
+}
+
+.component-card[data-component="time"].active .time-separator {
+    color: #3182ce;
+}
+
+.component-card[data-component="time"].active .helper-text {
+    background: #ebf8ff;
+    border-color: #4299e1;
+    color: #2c5aa0;
+}
+
+/* =============================================================================
+   ANIMATION ENHANCEMENTS
+   ============================================================================= */
+
+/* Subtle pulse when active */
+.component-card[data-component="time"].active .time-input-container {
+    animation: subtlePulse 2s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+    0%, 100% { box-shadow: 0 4px 12px rgba(66, 153, 225, 0.15); }
+    50% { box-shadow: 0 6px 20px rgba(66, 153, 225, 0.25); }
+}
+
+/* Input transition animations */
+.component-card[data-component="time"] .time-input {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.component-card[data-component="time"] .time-separator {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+
+@media (max-width: 768px) {
+    .component-card[data-component="time"] .time-input-container {
+        gap: 8px;
+        margin: 12px 0;
+        padding: 8px;
+    }
+    
+    .component-card[data-component="time"] .time-input {
+        width: 55px;
+        height: 40px;
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+    
+    .component-card[data-component="time"] .time-separator {
+        font-size: 20px;
+        margin: 0 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .component-card[data-component="time"] .time-input-container {
+        flex-direction: row;
+        gap: 6px;
+        padding: 6px;
+    }
+    
+    .component-card[data-component="time"] .time-input {
+        width: 50px;
+        height: 36px;
+        font-size: 15px;
+        padding: 4px 8px;
+    }
+    
+    .component-card[data-component="time"] .time-separator {
+        font-size: 18px;
+    }
+    
+    .component-card[data-component="time"] .helper-text {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+
+/* =============================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================================================= */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .component-card[data-component="time"] .time-input {
+        border-width: 3px;
+    }
+    
+    .component-card[data-component="time"] .time-separator {
+        font-weight: 900;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .component-card[data-component="time"] .time-input,
+    .component-card[data-component="time"] .time-separator,
+    .component-card[data-component="time"] .time-input-container {
+        transition: none;
+        animation: none;
+    }
+    
+    .component-card[data-component="time"] .time-input:focus {
+        transform: none;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+.component-card[data-component="time"] .time-input:focus-visible {
+    outline: 3px solid #4299e1;
+    outline-offset: 2px;
+}
+
+/* =============================================================================
+   DARK MODE SUPPORT (Optional)
+   ============================================================================= */
+
+@media (prefers-color-scheme: dark) {
+    .component-card[data-component="time"] .time-input-container {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .component-card[data-component="time"] .time-input {
+        background: #1a202c;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .component-card[data-component="time"] .time-input:focus {
+        background: #2d3748;
+        border-color: #4299e1;
+    }
+    
+    .component-card[data-component="time"] .helper-text {
+        background: #1a202c;
+        color: #a0aec0;
+        border-color: #4a5568;
+    }
+}
