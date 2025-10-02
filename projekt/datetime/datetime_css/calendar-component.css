@@ -284,6 +284,21 @@
         padding: 10px;
     }
     
+    /* Select'ai vienas po kitu */
+    .component-card[data-component="calendar"] .calendar-selects {
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+    
+    .component-card[data-component="calendar"] #yearSelect,
+    .component-card[data-component="calendar"] #monthSelect {
+        width: 100%;
+        min-width: unset;
+        padding: 8px 35px 8px 12px;
+        font-size: 13px;
+    }
+    
     .component-card[data-component="calendar"] .calendar-grid {
         grid-template-columns: 20px repeat(7, 1fr);
         padding: 6px;
