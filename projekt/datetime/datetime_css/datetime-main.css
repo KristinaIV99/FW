@@ -1,0 +1,322 @@
+/* projekt/datetime/datetime_css/datetime-main.css */
+/* DateTime CSS Orchestrator - ACCORDION DESIGN + Komponentų stiliai PALIKTI */
+
+/* =============================================================================
+   COMPONENT CSS IMPORTS - PALIKTI KAIP BUVO - VISI KOMPONENTŲ STILIAI LIEKA!
+   ============================================================================= */
+
+@import url('./calendar-component.css');
+@import url('./time-component.css');
+@import url('./weekdays-component.css');
+@import url('./monthdays-component.css');
+@import url('./months-component.css');
+@import url('./intervals-component.css');
+@import url('./intervals-iso-component.css');
+
+
+/* ===== DATETIME ACCORDION SYSTEM ===== */
+.datetime-accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.accordion-item {
+  background: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gray-300);
+}
+
+.accordion-header {
+  background: #edf2f7;
+  color: #2d3748;
+  padding: var(--space-1) var(--space-4);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  transition: all var(--transition-normal);
+}
+
+.accordion-header:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.field-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.field-description {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-weight: 400;
+  font-style: italic;
+  margin-left: var(--space-2);
+}
+
+.accordion-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.field-status {
+  padding: var(--space-1) var(--space-2);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-family: var(--font-family-mono);
+  min-width: 30px;
+  text-align: center;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255,255,255,0.3);
+  font-weight: 600;
+}
+
+.field-status.has-data {
+  background: var(--color-success);
+  color: var(--color-white);
+  border-color: var(--color-success);
+  box-shadow: 0 0 10px rgba(72, 187, 120, 0.3);
+  animation: statusGlow 2s ease-in-out infinite;
+}
+
+.field-status.clickable-status {
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.field-status.clickable-status:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.field-status.clickable-status.has-data:hover {
+    background: rgba(239, 68, 68, 0.8);
+    color: white;
+}
+
+.component-status.clickable-component-status {
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.component-status.clickable-component-status:hover {
+    transform: scale(1.1);
+}
+
+.component-status.clickable-component-status.has-data:hover {
+    background: rgba(239, 68, 68, 0.8);
+    color: white;
+}
+
+@keyframes statusGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(72, 187, 120, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(72, 187, 120, 0.6); }
+}
+
+.accordion-content {
+  overflow: hidden;
+  transition: all var(--transition-slow);
+  max-height: 1000px;
+  background: transparent;
+}
+
+.accordion-content.collapsed {
+  max-height: 0;
+}
+
+/* Field Help Section */
+.field-help-section {
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+  border-bottom: 1px solid #bee3f8;
+}
+
+.help-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-primary-darker);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-white);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Components Section */
+.components-section {
+  padding: 0 var(--space-4) var(--space-4) var(--space-4);
+}
+
+.component-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+}
+
+.component-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 32px;
+}
+
+.component-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.component-card.active {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 1;
+  position: relative;
+}
+
+.component-icon {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+.component-name {
+  font-weight: 500;
+  color: var(--color-gray-700);
+  transition: color var(--transition-normal);
+}
+
+.component-card.active .component-name {
+  color: var(--color-white);
+}
+
+.component-status {
+  font-size: 0.8rem;
+  font-family: var(--font-family-mono);
+  color: var(--color-gray-500);
+  background: var(--color-gray-200);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  min-width: 25px;
+  text-align: center;
+  transition: all var(--transition-normal);
+  font-weight: 600;
+}
+
+.component-status.has-data {
+  background: var(--color-success);
+  color: var(--color-white);
+  box-shadow: 0 0 8px rgba(72, 187, 120, 0.3);
+}
+
+.component-card.active .component-status {
+  color: var(--color-white);
+}
+
+/* Active Component Area */
+.active-component-area {
+  overflow: hidden;
+  transition: all var(--transition-slow);
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  margin: 0 0 15px 0;
+  max-height: 600px;
+}
+
+.active-component-area.collapsed {
+  max-height: 0;
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.active-component-area:not(.collapsed) {
+  padding: var(--space-4);
+  animation: expandContent 0.4s ease;
+  border-color: var(--color-primary);
+}
+
+@keyframes expandContent {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.field-help-btn {
+  background: transparent;
+  border: 2px solid var(--color-gray-400);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: var(--color-gray-400);
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.field-help-btn:hover {
+  background: var(--color-white);
+  color: var(--color-gray-400);
+  border-color: var(--color-white);
+  transform: scale(1.1);
+}
+
+.accordion-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}

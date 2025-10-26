@@ -1,0 +1,181 @@
+/* TaskWarrior Composer - Tags Card */
+
+/* ===== TAGS KORTELĖS STILIAI ===== */
+
+/* Tags categories */
+.tags-categories {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.category-section {
+    margin-bottom: 10px;
+}
+
+.category-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Kategorijų antraščių stiliai */
+.category-title {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 13px;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background: #edf2f7;
+    border-radius: 6px;
+    border-left: 3px solid #4299e1;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.category-title:hover {
+    background: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+/* Susklestu kategorijų tagų konteinerių stiliai */
+.category-tags.collapsed {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* Išsklestu kategorijų tagų konteinerių stiliai */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    opacity: 1;
+    max-height: none;
+    overflow: visible;
+    transition: all 0.3s ease;
+}
+
+/* Animacija kategorijų išsklejimui */
+.category-tags:not(.collapsed) {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tag button stiliai */
+.tag-button {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.tag-button:hover {
+    border-color: #cbd5e0;
+    background: #f7fafc;
+}
+
+.tag-button.selected {
+    background: #4299e1;
+    color: white;
+    border-color: #4299e1;
+}
+
+.tag-button.selected:hover {
+    background: #3182ce;
+    border-color: #3182ce;
+}
+
+/* ===== PREVIEW TAGS STILIAI ===== */
+
+.preview-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.preview-tag-button {
+    background: rgba(66, 153, 225, 0.08);
+    color: #2d3748;
+    border: 1px solid var(--color-success);
+    border-radius: var(--radius-lg);
+    padding: var(--space-1) var(--space-3);
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: all var(--transition-fast);
+    user-select: none;
+}
+
+.preview-tag-button:hover {
+    background: rgba(66, 153, 225, 0.12);
+    border-color: rgba(66, 153, 225, 0.25);
+    transform: translateY(-1px);
+}
+
+.tag-name {
+    color: #ffffff;;
+    font-weight: 500;
+}
+
+.tag-remove {
+    background: rgba(160, 174, 192, 0.15);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    transition: all var(--transition-fast);
+    line-height: 1;
+    color: #718096;
+}
+
+.tag-remove:hover {
+    background: rgba(245, 101, 101, 0.2);
+    color: #e53e3e;
+}
+
+/* Responsive - ant mažesnių ekranų */
+/*@media (max-width: 600px) {
+    .preview-tags-container {
+        gap: 6px;
+    }
+    
+    .preview-tag-button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    
+    .tag-remove {
+        width: 16px;
+        height: 16px;
+        font-size: 12px;
+    }
+}*/
+
